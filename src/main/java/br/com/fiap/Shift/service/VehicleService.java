@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class VehicleService {
     @Autowired
     private VehicleRepository repository;
 
-    public List<Vehicle> getVehicles() {
+    public List<Vehicle> getAllVehicles() {
         return repository.findAll();
     }
 
@@ -23,24 +23,22 @@ public class VehicleService {
         return repository.save(vehicle);
     }
 
-    public Optional<Vehicle> getVehiclesById(Integer id){
-        return repository.findById(id);
+    public Vehicle getVehiclesById(Integer id){
+        return findVechicleById(id);
     }
 
-    public void deleteVehicle(Integer id){
-        var optionalVehicle = getVehiclesById(id);
-        if(optionalVehicle.isEmpty()){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Vehicle not founded.");
-        }
+    public void deleteVehicleById(Integer id){
+        findVechicleById(id);
         repository.deleteById(id);
     }
 
-    public Vehicle updateVehicle (Integer id, Vehicle newVehicles){
-        var optionalVehicle = getVehiclesById(id);
-        if(optionalVehicle.isEmpty()){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Vehicle not founded.");
-        }
-        newVehicles.setId(id);
-        return repository.save(newVehicles);
+    public Vehicle updateVehicle (Integer id, Vehicle newVehicle){
+        findVechicleById(id);
+        newVehicle.setId(id);
+        return repository.save(newVehicle);
+    }
+
+    private Vehicle findVechicleById(Integer id){
+        return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Vehicle with ID" +id +"not founded"));
     }
 }
