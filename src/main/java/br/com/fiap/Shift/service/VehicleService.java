@@ -1,7 +1,7 @@
 package br.com.fiap.Shift.service;
 
 import br.com.fiap.Shift.models.Vehicle;
-import br.com.fiap.Shift.repository.VehicleRepository;
+import br.com.fiap.Shift.repositories.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
