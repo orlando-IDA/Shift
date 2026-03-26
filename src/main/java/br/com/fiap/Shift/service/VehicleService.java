@@ -24,21 +24,21 @@ public class VehicleService {
     }
 
     public Vehicle getVehiclesById(Integer id){
-        return findVechicleById(id);
+        return findVehicleById(id);
     }
 
     public void deleteVehicleById(Integer id){
-        findVechicleById(id);
+        findVehicleById(id);
         repository.deleteById(id);
     }
 
     public Vehicle updateVehicle (Integer id, Vehicle newVehicle){
-        findVechicleById(id);
+        findVehicleById(id);
         newVehicle.setId(id);
         return repository.save(newVehicle);
     }
 
-    private Vehicle findVechicleById(Integer id){
+    private Vehicle findVehicleById(Integer id){
         return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Vehicle with ID" +id +"not founded"));
     }
 }

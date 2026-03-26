@@ -38,6 +38,6 @@ public class CustomerService {
     }
 
     private Customer findCustomerById(Integer id){
-        return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Customer with ID" +id +"not founded"));
+        return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Customer with ID " +id +" not found"));
     }
 }
