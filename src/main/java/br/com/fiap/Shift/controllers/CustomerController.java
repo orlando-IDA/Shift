@@ -22,7 +22,7 @@ public class CustomerController {
         return service.getAllCustomers();
     }
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer){
         return ResponseEntity
                 .status(HttpStatus.CREATED)
