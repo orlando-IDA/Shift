@@ -13,9 +13,9 @@ import java.math.BigDecimal;
 public class Vehicle {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String manuFacturer;
+    private String manufacturer;
     private String model;
-    private Integer year;
+    private Integer releaseYear;
     private String licensePlate;
     private BigDecimal dailyPrice;
 }
