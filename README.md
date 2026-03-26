@@ -7,7 +7,6 @@ Shift
 ├─ .mvn
 │  └─ wrapper
 │     └─ maven-wrapper.properties
-├─ README.md
 ├─ mvnw
 ├─ mvnw.cmd
 ├─ pom.xml
@@ -19,7 +18,10 @@ Shift
    │  │        └─ fiap
    │  │           └─ Shift
    │  │              ├─ ShiftApplication.java
+   │  │              ├─ config
+   │  │              │  └─ CorsConfig.java
    │  │              ├─ controllers
+   │  │              │  ├─ CustomerController.java
    │  │              │  └─ VehicleController.java
    │  │              ├─ models
    │  │              │  ├─ Customer.java
