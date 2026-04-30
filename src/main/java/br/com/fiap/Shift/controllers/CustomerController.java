@@ -3,9 +3,11 @@ package br.com.fiap.Shift.controllers;
 import br.com.fiap.Shift.models.Customer;
 import br.com.fiap.Shift.service.CustomerService;
 import lombok.extern.slf4j.Slf4j;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +25,7 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer){
+    public ResponseEntity<Customer> createCustomer(@RequestBody @Valid Customer customer){
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(service.addCustomers(customer));
@@ -43,7 +45,7 @@ public class CustomerController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Customer> updateCustomerById(@PathVariable Integer id, @RequestBody Customer customer){
+    public ResponseEntity<Customer> updateCustomerById(@PathVariable Integer id, @RequestBody @Valid Customer customer){
         log.info("updateCustomerById" + id);
         return ResponseEntity.ok(service.updateCustomer(id,customer));
     }

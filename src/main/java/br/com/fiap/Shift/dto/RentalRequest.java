@@ -17,6 +17,8 @@ public record RentalRequest(
     LocalDateTime startDate,
 
     LocalDateTime endDate
+
+
 ) {
     public Rental toEntity() {
         Rental rental = new Rental();

@@ -15,6 +15,7 @@ public class Customer {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    @ValidLicense
     private String driverLicense;
     private String cpf;
     private LocalDate expiryDate;

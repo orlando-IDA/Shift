@@ -1,5 +1,6 @@
 package br.com.fiap.Shift.controllers;
 
+import br.com.fiap.Shift.dto.VehicleSummary;
 import br.com.fiap.Shift.models.Vehicle;
 import br.com.fiap.Shift.service.VehicleService;
 import lombok.extern.slf4j.Slf4j;
@@ -73,5 +74,10 @@ public class VehicleController {
     @GetMapping("search/year")
     public List<Vehicle> findByYear(@RequestParam Integer year) {
         return service.findByYear(year);
+    }
+
+    @GetMapping("summary")
+    public List<VehicleSummary> getSummaries() {
+        return service.getVehicleSummaries();
     }
 }

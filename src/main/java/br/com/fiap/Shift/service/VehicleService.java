@@ -1,5 +1,6 @@
 package br.com.fiap.Shift.service;
 
+import br.com.fiap.Shift.dto.VehicleSummary;
 import br.com.fiap.Shift.models.Vehicle;
 import br.com.fiap.Shift.repositories.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,5 +60,9 @@ public class VehicleService {
 
     public List<Vehicle> findByYear(Integer year) {
         return repository.findByReleaseYear(year);
+    }
+
+    public List<VehicleSummary> getVehicleSummaries() {
+        return repository.findAllProjectedBy();
     }
 }
