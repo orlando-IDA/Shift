@@ -1,5 +1,6 @@
 package br.com.fiap.Shift.models;
 
+import br.com.fiap.Shift.validation.ValidLicense;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
